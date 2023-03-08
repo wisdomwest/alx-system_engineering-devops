@@ -1,2 +1,2 @@
-0 string SCHOOL School data
-! :mime School
+input 1: 0 string SCHOOL School data
+input 2: !:mime School
