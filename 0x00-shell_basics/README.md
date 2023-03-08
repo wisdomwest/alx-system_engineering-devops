@@ -1,1 +1,1 @@
-shell read me to be updated 
+this directory contains basic commands for linux
