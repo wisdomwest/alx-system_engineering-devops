@@ -1,1 +1,1 @@
-learning shell permissions in linux
+learning permissions in shell
