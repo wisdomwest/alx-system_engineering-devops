@@ -1,4 +1,5 @@
 #auth with private key 
 
 Host *
-
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
