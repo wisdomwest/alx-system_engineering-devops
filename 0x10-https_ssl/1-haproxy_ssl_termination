@@ -1,1 +1,17 @@
-#!/usr/bin/env bash
+frontend http_front
+    bind *:80
+    bind *:443 ssl crt /etc/haproxy/certs/www.wizziewest.tech.pem
+    mode http
+    redirect scheme https code 301 if !{ ssl_fc }
+    default_backend http_back
+    timeout client 30s
+    timeout server 30s
+    timeout connect 5s
+
+backend http_back
+    balance roundrobin
+    mode http
+    server 309888-web-01 54.237.79.93:80 check
+    server 309888-web-02 34.207.63.6:80 check
+    timeout server 30s
+    timeout connect 5s
