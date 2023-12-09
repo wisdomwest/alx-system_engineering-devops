@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #fix nginx issue
+sudo ufw allow 80
 service nginx start
