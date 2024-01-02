@@ -11,8 +11,8 @@ if __name__ == "__main__":
     user_data = requests.get(url + "users/{}".format(id)).json()
     todos_data = requests.get(url + "todos", params={"userId": id}).json()
 
-    with open("{}.csv".format(id), "w", newline="") as csvfile:
-        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+    with open("{}.csv".format(id), "w", newline="") as csv_file:
+        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
 
         for task in todos_data:
             writer.writerow([

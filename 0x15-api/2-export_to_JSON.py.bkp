@@ -12,13 +12,11 @@ if __name__ == "__main__":
     todos_data = requests.get(url + "todos", params={"userId": id}).json()
 
     with open("{}.json".format(id), "w") as json_file:
-        tasks = []
         for task in todos_data:
-            tasks.append({
-                "task": task.get("title"),
-                "completed": task.get("completed"),
-                "username": user_data.get("username")
-            })
-
-        save_format = {id: tasks}
-        json.dump(save_format, json_file)
+            json.dump({
+                id: [{
+                    "task": task.get("title"),
+                    "completed": task.get("completed"),
+                    "username": user_data.get("username")
+                }]
+            }, json_file)
