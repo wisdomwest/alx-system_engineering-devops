@@ -9,9 +9,8 @@ def number_of_subscribers(subreddit):
     """queries the Reddit API"""
     about = requests.get("https://www.reddit.com/r/{}/about.json"
                          .format(subreddit),
-                         headers={"User-Agent": "west"},
-                         allow_redirects=False)
-    if about.status_code >= 300:
+                         headers={"User-Agent": "west"})
+    if about.status_code == 200:
+        return about.json().get("data").get("subscribers")
+    else:
         return 0
-
-    return about.json().get("data").get("subscribers")
