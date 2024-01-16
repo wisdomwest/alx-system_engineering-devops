@@ -3,7 +3,6 @@
     of subscribers for a given subreddit"""
 
 import requests
-from requests.exceptions import HTTPError
 
 
 def number_of_subscribers(subreddit):
