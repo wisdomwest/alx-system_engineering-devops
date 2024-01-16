@@ -10,7 +10,8 @@ def number_of_subscribers(subreddit):
     """queries the Reddit API"""
     about = requests.get("https://www.reddit.com/r/{}/about.json"
                          .format(subreddit),
-                         headers={"User-Agent": "west"})
+                         headers={"User-Agent": "west"},
+                         allow_redirects=False)
     if about.status_code == 404:
         return 0
 
