@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
                          .format(subreddit),
                          headers={"User-Agent": "west"},
                          allow_redirects=False)
-    if about.status_code == 404:
+    if about.status_code >= 300:
         return 0
 
     return about.json().get("data").get("subscribers")
