@@ -2,6 +2,5 @@
 
 # Increase the ULIMIT
 exec { 'fix--for-nginx':
-  command => 'sed -i "s/15/4096/" /etc/default/nginx',
-  path    => '/usr/local/bin/:/bin/'
+  command => '/usr/local/bin/sed -i "s/15/4096/" /etc/default/nginx ; /usr/sbin/service nginx restart',
 }
